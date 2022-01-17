@@ -1,0 +1,48 @@
+<div class="container">
+    <br>
+    <h4>Administración de cliente</h4>
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-2">
+            <h6>Listado</h6>
+            <ul class="list-group">
+                <li class="list-group-item" 
+                *ngFor="let cliente of clientes"
+                (click)="seleccionar(cliente)"
+                [class.active]="cliente == clienteSeleccionado"
+                >
+                    {{cliente.nombre}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-10">
+            <div class="card">
+                <div class="card-header">
+                    Ficha del cliente
+                </div>
+                <div class="card-body">
+                    <div>
+                        <label class="col-2">Nombre:</label>
+                        <input type="text" name="nombre" [(ngModel)]="clienteSeleccionado.nombre">
+                    </div>
+                    <div>
+                        <label class="col-2" for="">Cédula:</label>
+                        <input type="text" name="identificador" [(ngModel)]="clienteSeleccionado.identificador">
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <button (click)="save(clienteSeleccionado)" class="btn btn-primary">Guardar</button>
+                        </div>
+                        <div class="col-2">
+                            <button (click)="delete(clienteSeleccionado)" class="btn btn-danger">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
